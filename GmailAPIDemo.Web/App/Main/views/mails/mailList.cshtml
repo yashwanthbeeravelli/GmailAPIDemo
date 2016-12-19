@@ -1,0 +1,52 @@
+﻿<div ng-controller="app.views.mails.mailList as vm">
+    <h1>Mails from Gmail</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-4">
+                <button ng-click="vm.openMailCreationModal()" class="btn btn-primary pull-left"><i class="fa fa-plus fa-envelope"></i> @L("CreateNewMail")</button>
+            </div>
+            <div class="col-md-4">
+                <button ng-click="vm.Refresh()" class="btn btn-primary center-block"><i class="fa fa-refresh"></i> @L("Refresh")</button>
+            </div>
+            <div class="col-md-4">
+                <button ng-click="vm.InsertMailsIntoLocalDB()" class="btn btn-primary pull-right"><i class="fa fa-download"></i> @L("Insert Mails into Local DB")</button>
+            </div>
+           
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Click To Open</th>
+                        <th>@L("Id")</th>
+                        <th>@L("From")</th>
+                        <th>@L("Subject")</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="thread in vm.threads">
+                        <td><a href="#/mails/{{ thread.threadId }}">View</a></td>
+                        <td>{{thread.id}}</td>
+                        <td>{{thread.sendBy}}</td>
+                        <td>{{thread.subject}}</td>
+                        <td>{{thread.date}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            @*<ul id="threads">
+                <li ng-repeat="thread in vm.threads">
+                    <a href="#/mails/{{ thread.threadId }}">
+                        <time>{{ thread.Date }}</time>
+                        <span class=""><input type="checkbox" /></span>
+                        <span class="fa-user">
+                            <span class="name">{{ thread.sendBy }}</span>
+                        </span>
+                        <span class="subject">{{ thread.subject }}</span>
+                        @*<span class="body">- {{ thread.snippet }}</span>
+                    </a>
+                    <hr />
+                </li>
+
+            </ul>*@
+        </div>
+    </div>
+</div>

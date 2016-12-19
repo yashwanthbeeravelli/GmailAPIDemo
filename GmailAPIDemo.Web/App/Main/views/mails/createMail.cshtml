@@ -1,0 +1,36 @@
+﻿<div>
+    <form name="mailCreateForm" role="form" novalidate class="form-validation">
+        <div class="modal-header">
+            <h4 class="modal-title">
+                <span>@L("CreateNewMail")</span>
+            </h4>
+        </div>
+        <div class="modal-body">
+
+            <div class="form-group">
+                <label>From</label>
+                <input class="form-control" type="text" name="Subject" ng-model="vm.mail.sendBy" required maxlength="50">
+            </div>
+
+            <div class="form-group">
+                <label>To</label>
+                <input class="form-control" type="text" name="To" value="yash.bee@gmail.com" disabled maxlength="50" placeholder="yash.bee@gmail.com">
+            </div>
+
+            <div class="form-group">
+                <label>Subject</label>
+                <input class="form-control" type="text" name="Subject" ng-model="vm.mail.subject" required maxlength="1000">
+            </div>
+
+            <div class="form-group">
+                <label>Message</label>
+                <textarea class="form-control" type="text" name="Message" ng-model="vm.mail.data" />
+            </div>
+            
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" ng-click="vm.cancel()">@L("Cancel")</button>
+            <button type="submit" class="btn btn-primary blue" ng-click="vm.send()" ng-disabled="userCreateForm.$invalid"><i class="fa fa-paper-plane"></i> <span>Send</span></button>
+        </div>
+    </form>
+</div>
